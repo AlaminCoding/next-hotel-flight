@@ -4,7 +4,7 @@ const BackgroundImage = (props) => {
   const { show, image } = props;
   return (
     <div
-      className={`absolute w-full h-full top-0 left-0 transition ease-in duration-500 ${
+      className={`absolute w-full h-full top-0 left-0 transition ease-in duration-500 rounded-none ${
         show ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -12,7 +12,7 @@ const BackgroundImage = (props) => {
         src={image}
         fill
         alt="Banner Image"
-        className="object-cover object-center z-0"
+        className="object-cover object-center z-0 rounded-none"
       />
     </div>
   );

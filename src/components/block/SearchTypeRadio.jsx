@@ -3,14 +3,13 @@ import { Context } from "@/app/layoutContext";
 import { useContext } from "react";
 
 const SearchTypeRadio = () => {
-  const { searchType, setSearchType } = useContext(Context);
-  const handleSearchType = (e) => {};
+  const { setSearchType } = useContext(Context);
   return (
-    <section className="mt-10">
-      <h2 className="text-center text-white text-xl">
+    <section>
+      <h2 className="text-center text-white text-3xl">
         What do you want to search ?
       </h2>
-      <div className="w-full flex align-center justify-center gap-5 mt-5">
+      <div className="w-full flex align-center justify-center gap-5 mt-8">
         <div className="px-5 py-2 bg-white flex align-center gap-2 relative">
           <input
             type="radio"
