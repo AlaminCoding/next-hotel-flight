@@ -5,8 +5,19 @@ export const Context = createContext();
 
 const LayoutContext = ({ children }) => {
   const [searchType, setSearchType] = useState("hotel");
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
   return (
-    <Context.Provider value={{ searchType, setSearchType }}>
+    <Context.Provider
+      value={{
+        searchType,
+        setSearchType,
+        searchResult,
+        setSearchResult,
+        searchModalOpen,
+        setSearchModalOpen,
+      }}
+    >
       {children}
     </Context.Provider>
   );

@@ -3,7 +3,8 @@ import InputGroup from "./InputGroup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { IoIosSearch } from "react-icons/io";
+import { Context } from "@/app/layoutContext";
+import { useContext } from "react";
 
 const schema = yup
   .object({
@@ -34,12 +35,13 @@ const schema = yup
     childNumber: yup
       .number()
       .transform((value) => (isNaN(value) ? undefined : value))
-      .positive()
       .integer(),
   })
   .required();
 
 const HotelSearchForm = () => {
+  const { setSearchModalOpen, setSearchResult } = useContext(Context);
+
   const {
     register,
     handleSubmit,
@@ -48,8 +50,26 @@ const HotelSearchForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (formData) => {
+    const searchedData = [];
+    await fetch("https://dull-gray-blazer.cyclic.app/hotels")
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((item) => {
+          if (item.city === formData.city) {
+            if (item.availableRooms >= formData.roomNumber) {
+              if (
+                item.adult >= formData.adultNumber &&
+                item.children >= formData.childNumber
+              ) {
+                searchedData.push(item);
+              }
+            }
+          }
+        });
+      });
+    setSearchResult(searchedData);
+    setSearchModalOpen(true);
   };
 
   return (

@@ -9,7 +9,15 @@ const InputGroup = (props) => {
     error,
     defaultVal = null,
   } = props;
-  const listData = ["Dhaka", "Chittagong", "Rajshahi", "Khulna", "Barishal"];
+  const listData = [
+    "Dhaka",
+    "Chittagong",
+    "Rajshahi",
+    "Khulna",
+    "Barishal",
+    "Shylet",
+    "Rangpur",
+  ];
 
   return (
     <div className="w-full mt-5">

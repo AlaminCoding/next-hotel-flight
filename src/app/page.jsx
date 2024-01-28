@@ -1,6 +1,7 @@
 import Background from "@/components/block/Background";
 import SearchForm from "@/components/block/SearchForm";
 import SearchTypeRadio from "@/components/block/SearchTypeRadio";
+import SearchModal from "@/components/block/SearchModal";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Background />
       <SearchTypeRadio />
       <SearchForm />
+      <SearchModal />
     </main>
   );
 }

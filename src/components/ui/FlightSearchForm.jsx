@@ -3,6 +3,8 @@ import InputGroup from "./InputGroup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Context } from "@/app/layoutContext";
+import { useContext } from "react";
 
 const schema = yup
   .object({
@@ -28,20 +30,64 @@ const schema = yup
     childNumber: yup
       .number()
       .transform((value) => (isNaN(value) ? undefined : value))
-      .positive()
       .integer(),
   })
   .required();
 
 const FlightSearchForm = () => {
+  const { setSearchModalOpen, setSearchResult } = useContext(Context);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  //Format date to DD-MM-YYYY
+  const formatDate = (date) => {
+    const d = new Date(date);
+    const month = d.getMonth() + 1;
+    const day = d.getDate();
+    const year = d.getFullYear();
+    return `${day < 10 ? "0" + day : day}-${
+      month < 10 ? "0" + month : month
+    }-${year}`;
+  };
+
+  const onSubmit = async (formData) => {
+    const searchedData = [];
+    await fetch("https://dull-gray-blazer.cyclic.app/flights")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data[0].departue);
+        data.forEach((item) => {
+          if (
+            item.from === formData.departureCity &&
+            item.to === formData.arrivalCity
+          ) {
+            if (formData.returnDate) {
+              if (
+                item.departue === formatDate(formData.departureDate) &&
+                item.return === formatDate(formData.returnDate)
+              ) {
+                searchedData.push(item);
+              }
+            } else {
+              if (item.departue === formatDate(formData.departureDate)) {
+                if (
+                  item.adult >= formData.adultNumber &&
+                  item.child >= formData.childNumber
+                ) {
+                  searchedData.push(item);
+                }
+              }
+            }
+          }
+        });
+      });
+    console.log(searchedData);
+    setSearchResult(searchedData);
+    setSearchModalOpen(true);
   };
 
   return (
