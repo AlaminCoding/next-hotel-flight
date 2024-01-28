@@ -6,7 +6,7 @@ const SearchTypeRadio = () => {
   const { setSearchType } = useContext(Context);
   return (
     <section>
-      <h2 className="text-center text-white text-3xl">
+      <h2 className="text-center text-white text-xl md:text-3xl">
         What do you want to search ?
       </h2>
       <div className="w-full flex align-center justify-center gap-5 mt-8">

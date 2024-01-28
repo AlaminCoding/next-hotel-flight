@@ -13,7 +13,7 @@
     @apply border bg-black text-white flex gap-1 font-semibold px-5 py-2 transition ease-in duration-100 hover:bg-white hover:text-black;
   }
   .item {
-    @apply text-lg flex items-center gap-2 font-medium mt-3;
+    @apply text-base md:text-lg flex items-center gap-2 font-medium mt-3;
   }
 }
 

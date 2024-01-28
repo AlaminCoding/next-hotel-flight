@@ -91,8 +91,11 @@ const FlightSearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-5 w-[500px]">
-      <div className="flex gap-5 -mt-5">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="bg-white p-5 w-full min-[500px]:w-[500px]"
+    >
+      <div className="flex gap-0 -mt-4 flex-col min-[500px]:flex-row min-[500px]:gap-5">
         <InputGroup
           type="city"
           name="departureCity"
@@ -112,7 +115,7 @@ const FlightSearchForm = () => {
           error={errors.arrivalCity?.message}
         />
       </div>
-      <div className="flex gap-5">
+      <div className="flex gap-0 flex-col min-[500px]:flex-row min-[500px]:gap-5">
         <InputGroup
           type="date"
           name="departureDate"
@@ -130,7 +133,7 @@ const FlightSearchForm = () => {
           error={errors.returnDate?.message}
         />
       </div>
-      <div className="flex gap-5">
+      <div className="flex gap-0 flex-col min-[500px]:flex-row min-[500px]:gap-5">
         <InputGroup
           type="number"
           name="adultNumber"

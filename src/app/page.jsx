@@ -5,7 +5,7 @@ import SearchModal from "@/components/block/SearchModal";
 
 export default function Home() {
   return (
-    <main className="relative container mx-auto px-[20px] h-screen flex flex-col justify-center">
+    <main className="relative container mx-auto p-[20px] h-screen flex flex-col justify-start min-[500px]:justify-center min-[500px]:overflow-y-visible overflow-y-scroll">
       <Background />
       <SearchTypeRadio />
       <SearchForm />

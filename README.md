@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## This is a simple project about search functionality of Hotel and Flight search
 
-## Getting Started
+Node Version : 18.18.2
 
-First, run the development server:
+### What I have done in this project ?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Render different search form according to radio button.
+- Dynamic Form validation with proper error message.
+- Show search result in a modal.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### What I have to implemet in future ?
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Implement sort and filter functionality.
+- Use a functionality rich api with search, filter and sorting query.
+- Implement language and light-dark theme functionality.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+I can not found any available open API for Hotel and Flight search. Though I found some source but the process of using their API is time consuming and not easy and I found that I have to join their affiliet program to use their API or have to pay.
 
-## Learn More
+I have developed a very simple API for Hotel and Flight data.
 
-To learn more about Next.js, take a look at the following resources:
+For hotel's data, the API URL is
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[https://dull-gray-blazer.cyclic.app/hotels](https://dull-gray-blazer.cyclic.app/hotels)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For flight's data, the API URL is
 
-## Deploy on Vercel
+[https://dull-gray-blazer.cyclic.app/flights](https://dull-gray-blazer.cyclic.app/flights)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Places / City
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I kept only the division of Bangladesh as a City. We can find the list in form's datalist input.
+
+## Flight Departure date and Return date
+
+I kept very small amount of flight data, According to my data every flight starts from Dhaka and land on another city except Dhaka. If we use other combination, we will get no result. And another issue is every flight starts from 20-02-2024 to 25-02-2024 or 25-02-2024 to 28-02-2024. If we use other combination, we will get no result.
+
+I have implemented the search functionality which is works with every combination of search. But due to lack of enough data, we have to search according to my instuction that I mentioned above.
