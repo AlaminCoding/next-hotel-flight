@@ -2,6 +2,15 @@
 
 Node Version : 18.18.2
 
+This project made with NextJs 14.1
+
+### Steps to run it locally
+
+- Clone the repository
+- `nvm use` (Node version mentioned in .nvmrc file)
+- `npm install`
+- `npm run dev`
+
 ### What I have done in this project ?
 
 - Render different search form according to radio button.
